@@ -32,8 +32,67 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            SmackTalkingPlayer smackTalker = new SmackTalkingPlayer();
+            smackTalker.Name = "Joe Mama";
+
+            smackTalker.Play(player1);
+
+            Console.WriteLine("-------------------");
+
+            OneHigherPlayer oneHigher = new OneHigherPlayer();
+            oneHigher.Name = "One Higher";
+
+            oneHigher.Play(smackTalker);
+
+            Console.WriteLine("-------------------");
+
+            HumanPlayer human = new HumanPlayer();
+            human.Name = "Daniel";
+
+            human.Play(oneHigher);
+
+            Console.WriteLine("-------------------");
+
+            CreativeSmackTalkingPlayer creativeSTP = new CreativeSmackTalkingPlayer();
+            creativeSTP.Name = "Joe Dada";
+
+            creativeSTP.Play(smackTalker);
+
+            Console.WriteLine("-------------------");
+
+            SoreLoserPlayer soreLoser = new SoreLoserPlayer();
+            soreLoser.Name = "Sappy";
+
+            soreLoser.Play(player2);
+
+            Console.WriteLine("-------------------");
+
+            UpperHalfPlayer upperHalf = new UpperHalfPlayer();
+            upperHalf.Name = "Upppp";
+
+            upperHalf.Play(player3);
+
+            Console.WriteLine("-------------------");
+
+            SoreLoserUpperHalfPlayer soreLoserUHP = new SoreLoserUpperHalfPlayer();
+            soreLoserUHP.Name = "Grumpy";
+
+            soreLoserUHP.Play(player1);
+
+            Console.WriteLine("-------------------");
+
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1,
+                player2,
+                player3,
+                large,
+                smackTalker,
+                oneHigher,
+                human,
+                creativeSTP,
+                soreLoser,
+                upperHalf,
+                soreLoserUHP
             };
 
             PlayMany(players);
@@ -62,7 +121,7 @@ namespace ShootingDice
             {
                 Console.WriteLine("-------------------");
 
-                // Make adjacent players play noe another
+                // Make adjacent players play one another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
                 player1.Play(player2);
